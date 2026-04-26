@@ -207,7 +207,6 @@ Post-pipeline, 6 automated audit checks run on every job execution and write pas
 - Service Principal with **Storage Blob Data Contributor** role on the storage account
 - Databricks secret scope linked to Key Vault
 
-```
 
 ---
 
