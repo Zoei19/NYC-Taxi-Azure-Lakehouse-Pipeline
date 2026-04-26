@@ -1,0 +1,29 @@
+# Azure Lakehouse Pipeline — Python Dependencies
+# Runtime: Databricks 13.3 LTS (Spark 3.4, Python 3.10)
+# Note: pyspark and delta-spark are pre-installed on Databricks clusters
+# This file is for local development, CI linting, and unit testing
+
+# ── Core data processing ───────────────────────────────────────────
+pyspark==3.4.0                  # Pre-installed on Databricks 13.3 LTS
+delta-spark==2.4.0              # Pre-installed on Databricks 13.3 LTS
+
+# ── Azure SDK ──────────────────────────────────────────────────────
+azure-storage-file-datalake==12.14.0   # ADLS Gen2 interactions
+azure-identity==1.15.0                 # Service Principal authentication
+azure-keyvault-secrets==4.7.0          # Key Vault secret retrieval
+
+# ── Databricks SDK ─────────────────────────────────────────────────
+databricks-sdk==0.20.0          # Databricks REST API + CLI interactions
+
+# ── Testing ────────────────────────────────────────────────────────
+pytest==7.4.0                   # Unit test framework
+pytest-cov==4.1.0               # Test coverage reporting
+chispa==0.9.2                   # PySpark DataFrame equality assertions in tests
+
+# ── Code quality ───────────────────────────────────────────────────
+flake8==6.1.0                   # Linting — enforced in CI via GitHub Actions
+black==23.9.1                   # Code formatter
+isort==5.12.0                   # Import sorting
+
+# ── Utilities ──────────────────────────────────────────────────────
+python-dotenv==1.0.0            # Load .env files for local development
