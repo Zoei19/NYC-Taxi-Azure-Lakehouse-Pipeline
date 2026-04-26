@@ -107,8 +107,6 @@ Revenue and tipping behaviour broken down by payment method across all 2.26M cle
                      upsert
                      + Z-ORDER
 ```
-![Pipeline DAG](docs/Pipeline-dag.png)
-![Audit Results](docs/audit-results.png)
 
 ### Databricks Workflow — task dependency graph
 
@@ -121,6 +119,9 @@ Revenue and tipping behaviour broken down by payment method across all 2.26M cle
 ```
 
 **Schedule:** Daily at 06:00 AM Europe/London · Cluster: Standard_D4s_v3 single node
+
+![Pipeline DAG](docs/Pipeline-dag.png)
+![Audit Results](docs/audit-results.png)
 
 ---
 
