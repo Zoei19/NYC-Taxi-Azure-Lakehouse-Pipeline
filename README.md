@@ -32,8 +32,8 @@ End-to-end Azure lakehouse pipeline processing **3.4M NYC Taxi records** across 
 │                    Azure Data Lake Storage Gen2              │
 │                                                             │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐   ┌────────┐ │
-│  │   raw/   │───▶│ bronze/  │───▶│ silver/  │──▶│ gold/  │ │
-│  │ nyc-taxi │    │  trips/  │    │  trips/  │   │        │ │
+│  │   raw    │───▶│ bronze   │───▶│ silver  │──▶│ gold   │ │
+│  │          │    │          │    │          │   │        │ │
 │  │          │    │          │    │          │   │ daily  │ │
 │  │ Parquet  │    │  Delta   │    │  Delta   │   │ hourly │ │
 │  │  files   │    │  table   │    │  table   │   │payment │ │
@@ -116,20 +116,18 @@ Six rules applied in the Silver transformation layer:
 
 | Rule | Description | Records removed |
 |------|-------------|-----------------|
-| fare_amount > 0 | Remove zero or negative fares | — |
-| trip_distance > 0 | Remove zero distance trips | — |
-| passenger_count > 0 | Remove trips with no passengers | — |
-| pickup_datetime not null | Remove records with no pickup time | — |
-| dropoff > pickup | Remove impossible time sequences | — |
-| trip_duration 1–240 mins | Remove sub-minute and 4hr+ trips | — |
+| fare_amount > 0 | Remove zero or negative fares |
+| trip_distance > 0 | Remove zero distance trips |
+| passenger_count > 0 | Remove trips with no passengers |
+| pickup_datetime not null | Remove records with no pickup time |
+| dropoff > pickup | Remove impossible time sequences |
+| trip_duration 1–240 mins | Remove sub-minute and 4hr+ trips |
 
 **Total removed: 1,139,973 records (33.5%)**
 
 Post-pipeline, 6 automated audit checks run on every job execution and write results to a `pipeline_audit` Delta table — raising an exception and triggering an email alert if any threshold is breached.
 
 ---
-
-## How to Run
 
 ### Prerequisites
 - Azure subscription (free tier works — £150 credit on signup)
