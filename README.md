@@ -149,13 +149,8 @@ azure-lakehouse-pipeline/
 │   ├── 02_silver_transform.py      # 6 quality rules + Delta MERGE upsert + Z-ORDER
 │   ├── 03_gold_aggregate.py        # 3 Gold analytics tables + OPTIMIZE
 │   └── 04_data_quality_checks.py   # 6 audit checks → pipeline_audit Delta table
-├── config/
-│   └── pipeline_config.json        # Paths and table names
 ├── docs/
 │   └── architecture.md             # Design decisions
-├── .github/
-│   └── workflows/
-│       └── ci.yml                  # Linting + syntax checks
 ├── requirements.txt
 └── README.md
 ```
