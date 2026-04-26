@@ -107,6 +107,8 @@ Revenue and tipping behaviour broken down by payment method across all 2.26M cle
                      upsert
                      + Z-ORDER
 ```
+![Pipeline DAG](docs/Pipeline-dag.png)
+![Audit Results](docs/audit-results.png)
 
 ### Databricks Workflow — task dependency graph
 
